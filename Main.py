@@ -1,45 +1,40 @@
 """
-Método main do estudo de Redes Neurais.
-O objetivo desse projeto é desenvolver uma rede neural do zero.
+Main method of my study on Neural Networks.
+The objective of this study is to develop a network from scratch.
 """
 
 import numpy as np
 
 def sigmoid(x):
     """
-    Função sigmoidal. Retorna o valor de x aplicado na função sigmoid.
-    x: 
-        Inteiro obrigatório.
-        Valor que será calculado pela função.
+    Sigmoid function. Returns the value of x apllied to the sigmoid function.
     """
     return 1 / (1 + np.exp(-x))
 
 class Neuron:
     """
-    Classe que gera um neurônio para a rede neural
+    Class that generates a single Neuron to the network
     """
     def __init__(self, weights, bias):
         """
-        Classe que inicializa o neurônio.
         weights:
             Np.array.
-            Peso dos neurônios.
+            Mathematical weight to the neurons.
         bias:
-            Inteiro.
-            Valor do enviesamento.
+            Integer.
+            Disproportionate weight in favor of or against the ideia.
         """
         self.weights = weights
         self.bias = bias
     
     def feedforward(self, inputs, func=sigmoid):
         """
-        Função de alimentação do neurônio.
         inputs:
             Np.array.
-            Valor que será calculado.
+            Values to be calculated.
         func:
-            Função que será usada para os calculos.
-            Por padrão é a função sigmoid.
+            Function that will be used.
+            By default we are using the sigmoid function.
         """
         total = np.dot(self.weights, inputs) + self.bias
         return func(total)
@@ -47,12 +42,12 @@ class Neuron:
 class OurNeuralNetwork:
     '''
         A neural network with:
-            - 2 inputs
-            - a hidden layer with 2 neurons (h1, h2)
-            - an output layer with 1 neuron (o1)
+            2 inputs
+            a hidden layer with 2 neurons (h1, h2)
+            an output layer with 1 neuron (o1)
         Each neuron has the same weights and bias:
-            - w = [0, 1]
-            - b = 0
+            w = [0, 1]
+            b = 0
     '''
     def __init__(self,):
         weights = np.array([0,1])
