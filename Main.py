@@ -62,7 +62,7 @@ class OurNeuralNetwork:
         self.h2 = Neuron(weights, bias)
         self.o1 = Neuron(weights, bias)
 
-    def feedforward(self, x):
+    def feedforward(self, x, func=sigmoid):
         out_h1 = self.h1.feedforward(x)
         out_h2 = self.h2.feedforward(x)
 
