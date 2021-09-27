@@ -11,6 +11,20 @@ def sigmoid(x):
     """
     return 1 / (1 + np.exp(-x))
 
+def deriv_sigmoid(x):
+    """
+    Derivative of the sigmoid function.
+    """
+    fx = sigmoid(x)
+    return fx * (1 - fx)
+
+def mse_loss(y_true, y_pred):
+    """
+        Mean Squared Error function.
+        y_true and y_pred are numpy arrays of the same length.
+    """
+    return ((y_true - y_pred)**2).mean()
+
 class Neuron:
     """
     Class that generates a single Neuron to the network
@@ -64,13 +78,6 @@ class OurNeuralNetwork:
         out_o1 = self.o1.feedforward([out_h1, out_h2])
 
         return out_o1
-
-def mse_loss(y_true, y_pred):
-    """
-        Mean Squared Error function.
-        y_true and y_pred are numpy arrays of the same length.
-    """
-    return ((y_true - y_pred)**2).mean()
 
 y_true = np.array([1,0,0,1])
 y_pred = np.array([0,0,0,0])
